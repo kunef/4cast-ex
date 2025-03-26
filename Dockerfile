@@ -58,6 +58,12 @@ COPY docker/entrypoint.sh .
 
 COPY docker/logging.ini ./config/logging.ini
 
+WORKDIR /mapproxy/config
+
+COPY mapproxy.yaml .
+
+WORKDIR /mapproxy
+
 ENTRYPOINT ["./entrypoint.sh"]
 
 CMD ["echo", "no CMD given"]
